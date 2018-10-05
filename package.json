@@ -1,0 +1,29 @@
+{
+  "name": "personal",
+  "version": "1.0.0",
+  "description": "retrieve contents of csv file in s3 then download the links and upload the downloaded files to another s3 bucket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wickedKiller",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "connect-multiparty": "^2.2.0",
+    "fast-csv": "^2.4.1",
+    "mongodb": "^3.1.6",
+    "mt-files-downloader": "^0.2.5",
+    "nodemon": "^1.18.4",
+    "parallel": "^1.2.0",
+    "paralleljs": "^0.2.1",
+    "request": "^2.88.0",
+    "s3fs": "^2.5.0",
+    "threads": "^0.12.0"
+  },
+  "devDependencies": {
+    "mt-downloader": "^2.2.2",
+    "zeltice-mt-downloader": "^1.1.3"
+  }
+}
