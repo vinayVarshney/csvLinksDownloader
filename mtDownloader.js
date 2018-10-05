@@ -28,14 +28,24 @@ csv
   function download(rec) {
 
     var filename = rec.replace(/\//g, '');
-    var filepath = path.join(os.tmpdir(), 'recording' + filename);
+    var filePath = './recordings/'+filename;
+    var downloadPath = path.resolve(filePath)
     var fileUrl = 'http:' + rec;
 
     var downloader = new Downloader();
-    var dl = downloader.download(fileUrl, filepath);
+    var dl = downloader.download(fileUrl, downloadPath);
         dl.start();   
         
-        dl.on('error', function(dl) { console.log('error downloading = > '+dl.url) });
+        dl.on('error', function(dl) { 
+            var dlUrl = dl.url;
+            console.log('error downloading = > '+dl.url+' restarting download....');
+
+            if(!dlUrl.endsWith('.wav') && !dlUrl.endsWith('Recording')){
+                console.log('resuming file download => '+dlUrl);
+                dl.resume();
+            }
+            
+        });
 
 
 }
